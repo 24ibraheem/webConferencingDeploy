@@ -32,7 +32,8 @@ export default function AdminDashboard() {
     }
 
     try {
-      socketRef.current = io('https://backend-new-eeg9dkhqgbe3hrfg.centralindia-01.azurewebsites.net/');
+      const socketUrl = import.meta.env.VITE_SOCKET_SERVER_URL || 'http://localhost:3000';
+      socketRef.current = io(socketUrl);
 
       socketRef.current.emit('join-room', { roomId, displayName, isAdmin: true });
 

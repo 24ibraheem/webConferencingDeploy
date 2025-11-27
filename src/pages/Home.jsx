@@ -9,16 +9,17 @@ export default function Home() {
   async function createMeeting() {
     setLoading(true);
     try {
-      const res = await fetch('/api/create-meeting', { method: 'POST' });
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+      const res = await fetch(`${apiUrl}/api/create-meeting`, { method: 'POST' });
       if (!res.ok) {
-        throw new Error(`HTTP ${res.status}: ${res.statusText}. Make sure the backend server is running on port 3000.`);
+        throw new Error(`HTTP ${res.status}: ${res.statusText}. Make sure the backend server is running.`);
       }
       const data = await res.json();
       alert(`Meeting Created!\nRoom Code: ${data.meetingId}\n\nShare this code with participants to join.`);
       navigate(`/room/${data.meetingId}?role=instructor`);
     } catch (error) {
       console.error('Error creating meeting:', error);
-      alert(`Failed to create meeting.\n\n${error.message}\n\nMake sure:\n1. Backend server is running (npm start in server/)\n2. MongoDB is running\n3. Port 3000 is not in use`);
+      alert(`Failed to create meeting.\n\n${error.message}\n\nMake sure:\n1. Backend server is running\n2. MongoDB is running\n3. VITE_API_URL is configured in Azure Static Web Apps`);
     } finally {
       setLoading(false);
     }
