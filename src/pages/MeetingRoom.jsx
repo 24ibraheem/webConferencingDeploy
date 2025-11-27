@@ -113,8 +113,8 @@ export default function MeetingRoom() {
 
   async function join() {
     try {
-      // Use Vite env var in production to point to the socket server (e.g. https://api.example.com)
-      const socketUrl = import.meta.env.VITE_SOCKET_SERVER_URL || 'http://localhost:3000';
+      // Backend URL for Azure deployment
+      const socketUrl = 'https://backend-new-eeg9dkhqgbe3hrfg.centralindia-01.azurewebsites.net';
       socketRef.current = io(socketUrl, {
         reconnection: true,
         reconnectionDelay: 1000,

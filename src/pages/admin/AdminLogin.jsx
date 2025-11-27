@@ -8,7 +8,7 @@ const navigate = useNavigate()
 
 
 async function submit(){
-const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const apiUrl = 'https://backend-new-eeg9dkhqgbe3hrfg.centralindia-01.azurewebsites.net';
 const res = await fetch(`${apiUrl}/api/admin-login`, { method: 'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(form) })
 if(res.ok) navigate('/admin/dashboard')
 else alert('invalid credentials')

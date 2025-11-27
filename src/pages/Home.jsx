@@ -9,7 +9,7 @@ export default function Home() {
   async function createMeeting() {
     setLoading(true);
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+      const apiUrl = 'https://backend-new-eeg9dkhqgbe3hrfg.centralindia-01.azurewebsites.net';
       const res = await fetch(`${apiUrl}/api/create-meeting`, { method: 'POST' });
       if (!res.ok) {
         throw new Error(`HTTP ${res.status}: ${res.statusText}. Make sure the backend server is running.`);
