@@ -8,7 +8,7 @@ export default defineConfig({
     port: 5173,
     host: 'localhost',
     proxy: {
-      '/api': 'http://localhost:3000'
+      '/api': 'https://backend-new-eeg9dkhqgbe3hrfg.centralindia-01.azurewebsites.net/'
     }
   }
 })

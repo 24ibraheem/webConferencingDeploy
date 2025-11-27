@@ -32,7 +32,7 @@ export default function AdminDashboard() {
     }
 
     try {
-      socketRef.current = io('http://localhost:3000');
+      socketRef.current = io('https://backend-new-eeg9dkhqgbe3hrfg.centralindia-01.azurewebsites.net/');
 
       socketRef.current.emit('join-room', { roomId, displayName, isAdmin: true });
 

@@ -1,8 +1,11 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 export async function connectDB() {
   try {
-    const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/ly_conference';
+    const mongoUri = process.env.MONGO_URI;
     
     await mongoose.connect(mongoUri);
     
